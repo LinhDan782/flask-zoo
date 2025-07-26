@@ -4,7 +4,7 @@ import numpy as np
 import os
 from werkzeug.utils import secure_filename
 from PIL import Image
-
+import gdown
 # Load mô hình
 model = tf.keras.models.load_model('animal_model.h5')
 
