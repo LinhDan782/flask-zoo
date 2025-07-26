@@ -4,11 +4,12 @@ import numpy as np
 import os
 from werkzeug.utils import secure_filename
 from PIL import Image
-import gdown
+import zipfile
 
 if not os.path.exists("animal_model.h5"):
-    url = "url = "https://drive.google.com/uc?id=1q1fSPQhsCZP2FtSuR3CndKVhIPY6oYQn""
-    gdown.download(url, "animal_model.h5", quiet=False)
+    with zipfile.ZipFile("model.zip", 'r') as zip_ref:
+        zip_ref.extractall()
+        
 # Load mô hình
 model = tf.keras.models.load_model('animal_model.h5')
 
