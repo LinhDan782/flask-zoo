@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Phân loại ảnh động vật</title>
+</head>
+<body>
+    <h2>Upload ảnh động vật để phân loại</h2>
+    <form method="post" enctype="multipart/form-data">
+        <input type="file" name="image" required>
+        <input type="submit" value="Dự đoán">
+    </form>
+
+    {% if filename %}
+        <h3>Ảnh đã upload:</h3>
+        <img src="{{ url_for('static', filename='uploads/' + filename) }}" width="300">
+        <h3>Kết quả dự đoán:</h3>
+        <ul>
+            {% for label, prob in result %}
+                <li>{{ label }} - {{ prob }}%</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
