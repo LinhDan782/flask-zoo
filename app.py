@@ -7,7 +7,7 @@ from PIL import Image
 import gdown
 
 if not os.path.exists("animal_model.h5"):
-    url = "https://drive.google.com/file/d/1q1fSPQhsCZP2FtSuR3CndKVhIPY6oYQn/view?usp=drive_link"
+    url = "url = "https://drive.google.com/uc?id=1q1fSPQhsCZP2FtSuR3CndKVhIPY6oYQn""
     gdown.download(url, "animal_model.h5", quiet=False)
 # Load mô hình
 model = tf.keras.models.load_model('animal_model.h5')
