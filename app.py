@@ -5,6 +5,10 @@ import os
 from werkzeug.utils import secure_filename
 from PIL import Image
 import gdown
+
+if not os.path.exists("animal_model.h5"):
+    url = "https://drive.google.com/file/d/1q1fSPQhsCZP2FtSuR3CndKVhIPY6oYQn/view?usp=drive_link"
+    gdown.download(url, "animal_model.h5", quiet=False)
 # Load mô hình
 model = tf.keras.models.load_model('animal_model.h5')
 
@@ -12,7 +16,7 @@ model = tf.keras.models.load_model('animal_model.h5')
 img_height, img_width = 128, 128
 
 # Lấy danh sách class
-class_names = ['cat', 'dog', 'monkey', 'lion', 'tiger', 'elephant', 'deer', 'zebra']  # Thay bằng class thực tế của bạn
+class_names = ['cat', 'dog', 'monkey', 'lion', 'tiger', 'elephant', 'deer', 'zebra']
 
 # Flask app
 app = Flask(__name__)
